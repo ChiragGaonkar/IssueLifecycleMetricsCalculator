@@ -5,7 +5,6 @@ A production-ready React application for calculating issue lifecycle metrics wit
 ![React](https://img.shields.io/badge/React-18-blue)
 ![Material UI](https://img.shields.io/badge/Material%20UI-v5-blue)
 ![dayjs](https://img.shields.io/badge/dayjs-latest-green)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ Features
 
@@ -23,10 +22,12 @@ A production-ready React application for calculating issue lifecycle metrics wit
 ### Highlighted Metrics
 
 1. **Age of Issue** ⭐
+
    - Formula: `Total Days - Blocked Days - Holiday Count`
    - Represents actual working days the issue was active
 
 2. **Time to Resolve** ⭐
+
    - Formula: `Total Days - Blocked Days - Holidays - Weekends`
    - Represents actual business days to resolve
 
@@ -73,34 +74,27 @@ npm run preview
 ## 🎯 Usage
 
 1. **Enter Issue Dates**
+
    - Select the Issue Start Date
    - Select the Issue Closed Date
 
 2. **Add Blocked Ranges** (Optional)
+
    - Click "Add Blocked Range"
    - Set start and end dates for each blocked period
    - Remove ranges using the delete button
 
-3. **View Metrics**
+3. **Add Holidays** (Optional)
+
+   - Click "Add Holiday"
+   - Set date for each holiday
+   - Remove holidays using the delete button
+
+4. **View Metrics**
    - Metrics update automatically as you input data
    - See detailed calculation breakdowns for transparency
 
 ## 🔧 Configuration
-
-### Customizing Holidays
-
-Edit `src/utils/dateCalculations.js`:
-
-```javascript
-export const DEFAULT_HOLIDAYS = [
-  '2026-01-26', // Republic Day
-  '2026-03-14', // Holi
-  '2026-08-15', // Independence Day
-  '2026-10-02', // Gandhi Jayanti
-  '2026-10-24', // Diwali
-  '2026-12-25', // Christmas
-];
-```
 
 ### Customizing Theme
 
@@ -109,8 +103,8 @@ Edit `src/App.jsx` to change colors and styling:
 ```javascript
 const theme = createTheme({
   palette: {
-    primary: { main: '#667eea' },
-    secondary: { main: '#764ba2' },
+    primary: { main: "#667eea" },
+    secondary: { main: "#764ba2" },
   },
 });
 ```
@@ -133,52 +127,7 @@ const theme = createTheme({
 ✅ Fully blocked issues  
 ✅ Weekends on blocked dates  
 ✅ Holidays on blocked dates  
-✅ No weekends/holidays in range  
-
-## 🏗️ Project Structure
-
-```
-TaskTracker/
-├── src/
-│   ├── components/
-│   │   ├── IssueForm.jsx          # Form with date pickers
-│   │   ├── MetricsDashboard.jsx   # Metrics display
-│   │   └── BlockedDateRange.jsx   # Blocked range component
-│   ├── utils/
-│   │   └── dateCalculations.js    # Pure calculation functions
-│   ├── App.jsx                     # Main application
-│   ├── App.css                     # Styling
-│   └── main.jsx                    # Entry point
-├── DOCUMENTATION.md                # Detailed documentation
-├── package.json
-└── README.md
-```
-
-## 🧪 Testing
-
-### Manual Test Scenarios
-
-**Test Case 1: Basic Scenario**
-- Start: Jan 1, 2026
-- End: Jan 15, 2026
-- Blocked: Jan 5-7 (3 days)
-- Expected Results:
-  - Total Days: 15
-  - Blocked Days: 3
-  - Weekend Days: 4 (Jan 3-4, 10-11)
-  - Age of Issue: 12
-  - Time to Resolve: 8
-
-**Test Case 2: Overlapping Blocks**
-- Start: Jan 1, 2026
-- End: Jan 20, 2026
-- Blocked: [Jan 5-7, Jan 6-9]
-- Expected: Merged to Jan 5-9 (5 blocked days)
-
-**Test Case 3: Same Day Issue**
-- Start: Jan 1, 2026
-- End: Jan 1, 2026
-- Expected: Total Days = 1
+✅ No weekends/holidays in range
 
 ## 🛠️ Tech Stack
 
@@ -205,21 +154,13 @@ TaskTracker/
 - High contrast for accessibility
 - Intuitive user interface
 
-## 📚 Documentation
-
-For detailed information about calculation logic, edge cases, and component architecture, see [DOCUMENTATION.md](./DOCUMENTATION.md)
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
 ## 👨‍💻 Author
 
-Built with ❤️ using React and Material UI
+Built with ❤️ by Chirag, using Antigravity🚀
 
 ## 🙏 Acknowledgments
 
